@@ -5,8 +5,10 @@ import { Card } from '../components/Card';
 import { Input } from '../components/Input';
 import { Button } from '../components/Button';
 import { LoadingSpinner } from '../components/LoadingSpinner';
-import { Send, Settings, Menu, X, Bot, User, Key, AlertCircle, Trash2, RefreshCw } from 'lucide-react';
+import { Send, Settings, Menu, X, Bot, User, Key, AlertCircle, Trash2 } from 'lucide-react';
 import { motion, AnimatePresence } from 'framer-motion';
+import ReactMarkdown from 'react-markdown';
+import remarkGfm from 'remark-gfm';
 
 interface Message {
   role: 'user' | 'model';
@@ -366,7 +368,38 @@ export const Chat: React.FC = () => {
                     ? 'bg-orange-600 text-white rounded-tr-none' 
                     : 'bg-stone-900/80 backdrop-blur-sm text-stone-200 rounded-tl-none border border-white/10'
                 }`}>
-                  {msg.content}
+                  <ReactMarkdown 
+                    remarkPlugins={[remarkGfm]}
+                    components={{
+                      p: ({node, ...props}) => <p className="mb-2 last:mb-0 leading-relaxed" {...props} />,
+                      a: ({node, ...props}) => <a className="text-orange-400 hover:text-orange-300 underline underline-offset-2" target="_blank" rel="noopener noreferrer" {...props} />,
+                      ul: ({node, ...props}) => <ul className="list-disc list-inside mb-2 space-y-1" {...props} />,
+                      ol: ({node, ...props}) => <ol className="list-decimal list-inside mb-2 space-y-1" {...props} />,
+                      li: ({node, ...props}) => <li className="ml-2" {...props} />,
+                      h1: ({node, ...props}) => <h1 className="text-xl font-bold mb-2 mt-4 first:mt-0" {...props} />,
+                      h2: ({node, ...props}) => <h2 className="text-lg font-bold mb-2 mt-3 first:mt-0" {...props} />,
+                      h3: ({node, ...props}) => <h3 className="text-md font-bold mb-1 mt-2 first:mt-0" {...props} />,
+                      code: ({node, inline, className, children, ...props}: any) => {
+                        return inline ? (
+                          <code className="bg-black/30 px-1 py-0.5 rounded text-sm font-mono text-orange-200" {...props}>
+                            {children}
+                          </code>
+                        ) : (
+                          <div className="bg-black/30 p-3 rounded-lg my-2 overflow-x-auto border border-white/5">
+                            <code className="text-sm font-mono text-stone-200 block" {...props}>
+                              {children}
+                            </code>
+                          </div>
+                        );
+                      },
+                      blockquote: ({node, ...props}) => <blockquote className="border-l-2 border-orange-500/50 pl-4 italic text-stone-400 my-2" {...props} />,
+                      table: ({node, ...props}) => <div className="overflow-x-auto my-2"><table className="min-w-full divide-y divide-white/10 text-left text-sm" {...props} /></div>,
+                      th: ({node, ...props}) => <th className="px-3 py-2 bg-white/5 font-semibold text-stone-200" {...props} />,
+                      td: ({node, ...props}) => <td className="px-3 py-2 border-t border-white/5 text-stone-300" {...props} />,
+                    }}
+                  >
+                    {msg.content}
+                  </ReactMarkdown>
                 </div>
               </div>
             </motion.div>
@@ -444,7 +477,7 @@ export const Chat: React.FC = () => {
                 <div className="p-4 rounded-xl bg-orange-900/10 border border-orange-500/10 flex gap-3 items-start">
                     <AlertCircle size={18} className="text-orange-500 mt-0.5 flex-shrink-0" />
                     <p className="text-xs text-orange-200/80 leading-relaxed">
-                        Your keys are stored locally or encrypted in our database. We use them only to fetch your Codeforces data and communicate with Gemini.
+                        Your keys are stored locally not in our database. We use them only to fetch your Codeforces data and communicate with Gemini.
                     </p>
                 </div>
                 
