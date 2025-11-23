@@ -1,6 +1,7 @@
 from typing import Annotated, List, Dict, Any
 from typing_extensions import TypedDict
 from langgraph.graph import StateGraph, END
+from langgraph.graph.message import add_messages
 from langgraph.prebuilt import ToolNode
 from langchain_core.messages import HumanMessage, AIMessage, SystemMessage, BaseMessage
 from langchain_google_genai import ChatGoogleGenerativeAI
@@ -10,7 +11,7 @@ import json
 
 # Define the state
 class AgentState(TypedDict):
-    messages: List[BaseMessage]
+    messages: Annotated[List[BaseMessage], add_messages]
     user_handle: str
     gemini_key: str
 
