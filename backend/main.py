@@ -7,7 +7,7 @@ from datetime import datetime
 import models
 import auth
 from database import engine, get_db
-from mcp_server import agent
+from ai_agent import agent
 from langchain_core.messages import HumanMessage, AIMessage
 
 # Create tables
