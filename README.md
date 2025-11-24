@@ -12,7 +12,7 @@
 [![Python](https://img.shields.io/badge/Python-3.11+-3776AB?style=for-the-badge&logo=python&logoColor=white)](https://www.python.org/)
 [![TailwindCSS](https://img.shields.io/badge/Tailwind-3.4-06B6D4?style=for-the-badge&logo=tailwindcss&logoColor=white)](https://tailwindcss.com/)
 
-[Features](#-features) • [Quick Start](#-quick-start) • [Deployment](#-deployment) • [Tech Stack](#-tech-stack) • [Contributing](#-contributing)
+[Features](#-features) • [Quick Start](#-quick-start) • [Demo Video](#-demo-video) • [Tech Stack](#-tech-stack) • [Contributing](#-contributing)
 
 </div>
 
@@ -92,26 +92,6 @@ Your data, your control:
   <p><i>👆 Click to watch CFanatic in action - AI-powered Codeforces analysis</i></p>
 
 </div>
-
----
-
-## 🖼️ Screenshots
-
-<div align="center">
-
-### Landing Page
-*Beautiful, modern UI with glassmorphism design*
-
-### Chat Interface
-*Intelligent AI assistant analyzing your Codeforces performance*
-
-### History Management
-*Access and continue previous conversations seamlessly*
-
-</div>
-
-> 💡 **Note**: Add your actual screenshots here when available!
-
 ---
 
 ## 🚀 Quick Start
@@ -185,61 +165,6 @@ Open your browser and navigate to:
 - **Frontend**: http://localhost:5173
 - **Backend API**: http://localhost:8000
 - **API Docs**: http://localhost:8000/docs
-
----
-
-## 🌐 Deployment
-
-### Deploy to Hugging Face Spaces
-
-CFanatic is optimized for deployment on Hugging Face Spaces with Docker.
-
-#### Quick Deploy
-
-1. **Generate Security Keys**
-   ```bash
-   python generate_keys.py
-   ```
-   Save these keys - you'll need them!
-
-2. **Create a New Space**
-   - Go to [Hugging Face Spaces](https://huggingface.co/spaces)
-   - Click **"Create new Space"**
-   - Choose **Docker** as SDK
-   - Name your space (e.g., `cfanatic`)
-
-3. **Configure Environment Variables**
-   
-   In your Space settings → Repository secrets, add:
-   
-   | Variable | Value | How to Generate |
-   |----------|-------|-----------------|
-   | `SECRET_KEY` | Your JWT secret | Run `generate_keys.py` |
-   | `ENCRYPTION_KEY` | Your encryption key | Run `generate_keys.py` |
-   | `PORT` | `7860` | Default HF port |
-
-4. **Push Your Code**
-   ```bash
-   git clone https://huggingface.co/spaces/YOUR_USERNAME/cfanatic
-   cd cfanatic
-   
-   # Copy all files from this repo
-   # Then:
-   git add .
-   git commit -m "Initial deployment"
-   git push
-   ```
-
-5. **Wait for Build** ⏱️
-   
-   Hugging Face will build your Docker image (10-15 minutes). Monitor progress in the Logs tab.
-
-6. **🎉 Done!**
-   
-   Your app will be live at: `https://huggingface.co/spaces/YOUR_USERNAME/cfanatic`
-
-📖 For detailed deployment instructions, see **[DEPLOYMENT.md](./DEPLOYMENT.md)**
-
 ---
 
 ## 🛠️ Tech Stack
@@ -340,15 +265,6 @@ Contributions are welcome! Here's how you can help:
 4. **📤 Push to the branch** (`git push origin feature/amazing-feature`)
 5. **🎉 Open a Pull Request**
 
-### Development Guidelines
-
-- Follow existing code style
-- Add tests for new features
-- Update documentation as needed
-- Keep commits atomic and well-described
-
----
-
 ## 📝 License
 
 This project is licensed under the **MIT License** - see the [LICENSE](LICENSE) file for details.
@@ -360,16 +276,8 @@ This project is licensed under the **MIT License** - see the [LICENSE](LICENSE) 
 - **Codeforces** for providing the amazing competitive programming platform
 - **Google** for the powerful Gemini AI model
 - **LangChain** team for the excellent LLM framework
-- **Hugging Face** for the free deployment platform
 - The **open-source community** for all the amazing tools
 
----
-
-## 📧 Contact & Support
-
-- **Issues**: [GitHub Issues](https://github.com/yourusername/cfanatic/issues)
-- **Discussions**: [GitHub Discussions](https://github.com/yourusername/cfanatic/discussions)
-- **Email**: your.email@example.com
 
 ---
 
@@ -378,7 +286,5 @@ This project is licensed under the **MIT License** - see the [LICENSE](LICENSE) 
 ### ⭐ Star this repo if you find it useful!
 
 **Made with ❤️ for the competitive programming community**
-
-[Report Bug](https://github.com/yourusername/cfanatic/issues) • [Request Feature](https://github.com/yourusername/cfanatic/issues) • [Documentation](./DEPLOYMENT.md)
 
 </div>
